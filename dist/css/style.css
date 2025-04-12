@@ -259,7 +259,7 @@ body {
   .nav {
     position: fixed;
     width: 50vw;
-    height: 100vw;
+    height: 100%;
     z-index: 10;
     background: #9DFF3A;
     top: 0;
