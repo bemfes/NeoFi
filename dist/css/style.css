@@ -360,6 +360,9 @@ body {
   }
 }
 @media (max-width: 575px) {
+  .nav {
+    width: 70vw;
+  }
   .first-sec {
     padding: 3.8rem 0rem;
   }
