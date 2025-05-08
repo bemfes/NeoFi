@@ -159,6 +159,17 @@ ul {
   width: 85%;
   margin: 0 auto;
 }
+
+@media(min-width: 1800px) {
+  .container {
+    width: 1800px;
+  }
+  .testi__box {
+    width: 1800px;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 575px) {
   .container {
     width: 90%;
