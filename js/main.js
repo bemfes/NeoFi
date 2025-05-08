@@ -37,37 +37,22 @@ faqItems.forEach(item => {
         const answer = item.querySelector('.faq__answer')
         const verticalSpan = item.querySelector('.faq__span_vertical')
         const answerText = item.querySelector('.faq__answer-text');
+        const faqBtn = item.querySelector('.faq__plus');
         if (answer.style.maxHeight) {
             answer.style.maxHeight = null
             item.setAttribute('aria-expanded', 'false')
             verticalSpan.classList.remove('faq__span_click')
             answerText.removeAttribute('tabindex', '0')
+            faqBtn.setAttribute('aria-label', 'expand answer')
         } else {
             answer.style.maxHeight = answer.scrollHeight + "px"
             item.setAttribute('aria-expanded', 'true')
             verticalSpan.classList.add('faq__span_click')
             answerText.setAttribute('tabindex', '0')
+            faqBtn.setAttribute('aria-label', 'roll up answer')
         }
     })
-    item.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            const answerText = item.querySelector('.faq__answer-text');
-            const answer = item.querySelector('.faq__answer')
-            const verticalSpan = item.querySelector('.faq__span_vertical')
-            if (answer.style.maxHeight) {
-                answer.style.maxHeight = null
-                item.setAttribute('aria-expanded', 'false')
-                verticalSpan.classList.remove('faq__span_click')
-                answerText.removeAttribute('tabindex', '0')
-            } else {
-                answer.style.maxHeight = answer.scrollHeight + "px"
-                item.setAttribute('aria-expanded', 'true')
-                verticalSpan.classList.add('faq__span_click')
-                answerText.setAttribute('tabindex', '0')
-
-            }
-        }
-    })
+    
 })
 
 const answerTexts = document.querySelectorAll('.faq__answer-text');
@@ -79,6 +64,8 @@ answerTexts.forEach(answer => {
         answer.classList.remove('faq__answer-text-focus')
     })
 })
+
+
 new window.JustValidate('.sub-form', {
     messages: {
       email: {
