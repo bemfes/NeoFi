@@ -36,39 +36,49 @@ faqItems.forEach(item => {
     item.addEventListener('click', () => {
         const answer = item.querySelector('.faq__answer')
         const verticalSpan = item.querySelector('.faq__span_vertical')
+        const answerText = item.querySelector('.faq__answer-text');
         if (answer.style.maxHeight) {
             answer.style.maxHeight = null
             item.setAttribute('aria-expanded', 'false')
-            console.log(verticalSpan);
             verticalSpan.classList.remove('faq__span_click')
+            answerText.removeAttribute('tabindex', '0')
         } else {
-            console.log('no height');
             answer.style.maxHeight = answer.scrollHeight + "px"
             item.setAttribute('aria-expanded', 'true')
-            console.log(verticalSpan);
             verticalSpan.classList.add('faq__span_click')
+            answerText.setAttribute('tabindex', '0')
         }
     })
     item.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
+            const answerText = item.querySelector('.faq__answer-text');
             const answer = item.querySelector('.faq__answer')
             const verticalSpan = item.querySelector('.faq__span_vertical')
             if (answer.style.maxHeight) {
                 answer.style.maxHeight = null
                 item.setAttribute('aria-expanded', 'false')
-                console.log(verticalSpan);
                 verticalSpan.classList.remove('faq__span_click')
+                answerText.removeAttribute('tabindex', '0')
             } else {
-                console.log('no height');
                 answer.style.maxHeight = answer.scrollHeight + "px"
                 item.setAttribute('aria-expanded', 'true')
-                console.log(verticalSpan);
                 verticalSpan.classList.add('faq__span_click')
+                answerText.setAttribute('tabindex', '0')
+
             }
         }
     })
 })
 
+const answerTexts = document.querySelectorAll('.faq__answer-text');
+answerTexts.forEach(answer => {
+    answer.addEventListener('focusin', () => {
+        answer.classList.add('faq__answer-text-focus')
+    })
+    answer.addEventListener('focusout', () => {
+        answer.classList.remove('faq__answer-text-focus')
+    })
+})
 new window.JustValidate('.sub-form', {
     messages: {
       email: {
