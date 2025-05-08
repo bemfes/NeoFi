@@ -1149,6 +1149,18 @@ body {
 .faq__answer-text {
   padding-top: 2rem;
   color: #999999;
+  position: relative;
+}
+.faq__answer-text-focus::after {
+  content: '';
+  display: block;
+  width: 99%;
+  height: 79%;
+  border: 1px solid white;
+  position: absolute;
+  top: 13px;
+  left: 0px;
+  border-radius: 4px;
 }
 .faq__question-box {
   display: flex;
